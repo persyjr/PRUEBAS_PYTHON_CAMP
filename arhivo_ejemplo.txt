@@ -1,0 +1,5 @@
+Persy has creado un archivo de formato txt 
+Persy con .write puedes escribir en tu archivo 
+has adicionado esta linea a tu archivo 
+ingresando mas datos .write puedes escribir en tu archivo cuantas veces quieras 
+['nuevo dato', 1, 'persy']ingresando List String con .write puedes escribir siempre y cuando se transforme a string 
