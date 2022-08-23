@@ -47,4 +47,15 @@ inicio=datetime.datetime(2022, 12,31)
 print(inicio)
 print("resultado de las restas de las fechas: DIAS, HORAS:MINUTOS:SEGUNDOS.MICROSEGUNDOS")
 print(inicio-fin)
-print((inicio-fin).total_seconds())
+print(f"{(inicio-fin).total_seconds()}\n")
+
+
+print("SENCILLA APLICACION DE DATETIME PARA CONCER EL DIA DE NACIMIENTO")
+fecha=input("Introduce una fecha de nacimiento 'DIA-MES-AÑO': ")
+#se convierte la fecha en formato DateTime
+fecha_dt=datetime.datetime.strptime(fecha, "%d-%m-%Y")
+#Definimos una tupla con los dias de la semana
+dias=("lunes","martes", "miercoles", "jueves", "viernes", "sabado", "domingo")
+#obtenemos el indice del dia de la semana de la fecha
+indice= datetime.date.weekday(fecha_dt)
+print(f"Has nacido el dia {dias[indice]}")
