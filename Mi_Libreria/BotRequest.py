@@ -1,24 +1,32 @@
-import requests
-from bs4 import BeautifulSoup
+import requests #importando libreria para solicitud de request
+from bs4 import BeautifulSoup #iimportando libreria para 
 import re #libreria de expresiones regulares
 
 #Definiendo los colores del texto colores
 azul = "\33[1;36m" 
-gris="33[0:37m"
-blanco="33[1:37m"
+gris="\33[0;37m"
+blanco="\33[1;37m"
 
 def datos_Game(url):
     #diccionario de salida que devualeve informacion de un producto 
     d={}
     # definiendo el user Agent en el encabezado del mensajero
     headers={
-        "user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
+        "user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, Like Gecko) Chrome/97.0.4692.99 Safari/537.36"
     }
+    #"user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:70.0) Gecko/20100101 Firefox/70.0"
     #realizando la peticion mediante el uso de libreria request
-    print(f"{azul}realizando la petición: {blanco}{url}{gris}")
+    
+    print(f"{azul}realizando la petición a:\n {blanco} {url} {gris} fin de la petición\n")
     #aca se cibfigura el tiempo de espera con el servidor en caso de que no responda, se peude manejar la excepcion
-    req=request.get(url, headers=headers, timeout=10)
-    print(f"{azul}codigo de respuesta ...: {blanco}{request.status_code}{req.reason}{gris}")
+    req=requests.get(url, headers=headers, timeout=2)
+    print(req.status_code)
+
+    soup = BeautifulSoup(req.text, 'html.parser')
+    print(soup.title)
+    #print(soup.prettify())
+    print(req.text)
+    """print(f"{azul}codigo de respuesta ...: {blanco}{request.status_code}{req.reason}{gris}")
     #en caso de que la peticion no se realice de forma correcta devuelvo el error
     if req.status_code !=200:
         return {"Error": f"{req.reason}", "status_code": f"{req.status_code}" }
@@ -66,13 +74,15 @@ def datos_Game(url):
             d["precio_ahora"]=None
         #devolvemos el diccionario con los datos obtenidos
         #brakpoint()
-        return d
+        return d"""
 
 if __name__=="__main__":
-    url=
-    url="https://www.game.es/19628"
-    #url
+    #url="https://www.game.es/ACCESORIOS/AURICULARES/PC-GAMING/GAME-HX500-RGB-71-PRO-GAMING-HEADSET-PC-PS4-AURICULARES-AURICULARES-GAMING/169628"
+    #url="https://www.game.es/19628"
+    url="https://www.enel.com.co/es/reporte-de-fallas.html?utm_id=7908&utm_source=google%20search%20-%20nacional&utm_medium=cpc&utm_campaign=enel%20colombia_rerporte-de-fallas-b2b_cli&utm_term=arte%20entretenimiento_anuncio%20de%20texto_na"
     datos=datos_Game(url)
-    for clave, valor in datos.items():
+    
+    """for clave, valor in datos.items():
         print(f"{azul}{clave.upper()}: {blanco}{valor}{gris}")
-    exit(0)
+    exit(0)"""
+    
