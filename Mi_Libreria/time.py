@@ -33,7 +33,7 @@ time.sleep(3)
 print(" Actividad Reanudada")
 print(" ciclo for con time.sleep(0,25)")
 for i in range(0,10):
-    time.sleep(0.25)
+        
     print(f"Ciclo for cada 0,25 sg {i}" )"""
 
 

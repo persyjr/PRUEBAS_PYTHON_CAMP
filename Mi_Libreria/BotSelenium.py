@@ -4,7 +4,6 @@ from selenium.webdriver.chrome.options import Options
 #from autotest_lib.client.common_lib.cros import chromedriver
 from selenium.common.exceptions import NoSuchElementException,StaleElementReferenceException,TimeoutException,ElementClickInterceptedException
 
-
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 
@@ -22,10 +21,6 @@ driver = webdriver.Chrome(service= service, options=opts)
 #self.driver =webdriver.Chrome(service=Service('chromedriver.exe'),options=opts)
 driver.get('https://www.enel.com.co/es/reporte-de-fallas.html?utm_id=7908&utm_source=google%20search%20-%20nacional&utm_medium=cpc&utm_campaign=enel%20colombia_rerporte-de-fallas-b2b_cli&utm_term=arte%20entretenimiento_anuncio%20de%20texto_na')
 
-
-
-
-
 #options = webdriver.ChromeOptions()
 #options.add_experimental_option('androidPackage', 'com.android.chrome')
 #driver = webdriver.Chrome('/chromedriver', options=options)
@@ -33,7 +28,6 @@ driver.get('https://www.enel.com.co/es/reporte-de-fallas.html?utm_id=7908&utm_so
 #driver =webdriver.Chrome('chromedriver',options=opts)
 #driver = chromedriver_instance.driver
 #driver.get('https://google.com')
-
 
 #defino mis datos de ingreso
 numFactura="4138574"

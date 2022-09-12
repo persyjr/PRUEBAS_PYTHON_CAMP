@@ -1,0 +1,10 @@
+.body{
+	display: flex;
+	background-color: White;
+	justify-content: center;
+	align-content: center;	
+}
+.boton{
+    background-color: #800080;
+    color:white;
+}

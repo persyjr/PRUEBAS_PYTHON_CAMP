@@ -19,13 +19,26 @@ def datos_Game(url):
     
     print(f"{azul}realizando la petición a:\n {blanco} {url} {gris} fin de la petición\n")
     #aca se cibfigura el tiempo de espera con el servidor en caso de que no responda, se peude manejar la excepcion
-    req=requests.get(url, headers=headers, timeout=2)
+    req=requests.get(url, headers=headers, timeout=5)
     print(req.status_code)
+
+    #soup = BeautifulSoup(req.text, 'html.parser')
+    #print(soup.title)
+    #print(soup.prettify())
+    #print(req.text)
 
     soup = BeautifulSoup(req.text, 'html.parser')
     print(soup.title)
-    #print(soup.prettify())
-    print(req.text)
+    ####################
+
+    ticket=soup.find(id="mensajeOK")
+
+    #ticket=soup.find("span", class_="texto-fuerte") #div del numero del caso
+    print(f'Su reporte se ha generado correctamente con el número de caso {ticket}\n')
+    print(ticket.text)
+
+
+    
     """print(f"{azul}codigo de respuesta ...: {blanco}{request.status_code}{req.reason}{gris}")
     #en caso de que la peticion no se realice de forma correcta devuelvo el error
     if req.status_code !=200:
