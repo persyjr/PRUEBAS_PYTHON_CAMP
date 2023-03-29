@@ -14,8 +14,17 @@ print(f"La hora  local es : {time.localtime()}\n")
 
 print("HORA STRING")
 #metodos para convertir la hora en un string
-print(f' la hora en formato STRING es : {time.strftime("%d/%m/%Y %H/:%M:%S",time.localtime())}\n') 
-
+print(f' la hora en formato STRING es : {time.strftime("%d/%m/%Y %H:%M:%S",time.localtime())}\n') 
+print(f' la hora en formato STRING es : {time.strftime("%Y-%m-%d",time.localtime())}\n')
+print(f' la hora en formato STRING es : {time.strftime("%d",time.localtime())}\n')
+print(f"El tipo de dato parala clave m_yday es entero  : {type(time.localtime().tm_mday)}\n")
+print(f"El valor del dia es : {time.localtime().tm_mday}\n")
+print(f"El valor del dia de  hace 3 dias es : {(time.localtime().tm_mday)-3}\n")
+dia=(time.localtime().tm_mday)-3
+mes=(time.localtime().tm_mon)
+año=(time.localtime().tm_year)
+fecha_ayer=f"{dia}-{mes}-{año}"
+print(fecha_ayer)
 #declarando una variable que me mantega la hora de entrada
 """print("CONTANDO LOS SEGUNDOS EN RESPONDER")
 inicio = time.time()

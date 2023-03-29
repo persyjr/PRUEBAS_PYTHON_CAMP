@@ -55,7 +55,6 @@ for i in filas_Electrificadoras:
     contador+=1
     if i[0].value=="CODENSA":        
         ticket_Respuestas_codensa.append(f"ticket de respuesta codensa {contador}")
-
 """
 
         

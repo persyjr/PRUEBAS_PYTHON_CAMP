@@ -1,0 +1,16 @@
+.body{
+	display: flex;
+	background-color: White;
+	justify-content: center;
+	align-content: center;	
+}
+.boton{
+    background-color: #800080;
+    color:white;
+}
+
+.mini_Card{	
+	display: flex;
+	background-color: rgb(25, 193, 205);
+	justify-content: space-evenly;	
+}

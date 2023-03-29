@@ -1,25 +1,34 @@
 from selenium import webdriver #importo la libreria de selenium
-#import chromedriver_binary 
-from selenium.webdriver.chrome.options import Options
-#from autotest_lib.client.common_lib.cros import chromedriver
-from selenium.common.exceptions import NoSuchElementException,StaleElementReferenceException,TimeoutException,ElementClickInterceptedException
+from selenium.webdriver.common.by import By
+#from selenium.webdriver.edge.options import Options
+#from selenium.webdriver.edge.service import Service as EdgeService
+#from webdriver_manager.edge import GeckoDriverManager
 
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
+#from webdriver_setup import get_webdriver_for
+
+#opts.add_argument("user-agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, Like Gecko) Chrome/97.0.4692.99 Safari/537.36")
 
 opts = Options()
-opts.binary_location = "Mi_Libreria/chromedriver"
-opts.add_argument("user-agent:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, Like Gecko) Chrome/97.0.4692.99 Safari/537.36")
-
-service = ChromeService(executable_path=ChromeDriverManager().install())
-
-driver = webdriver.Chrome(service= service, options=opts)
+opts.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36")
+url='https://www.google.com'
+service = FirefoxService(executable_path=GeckoDriverManager().install()) 
+#driver = get_webdriver_for("chrome", desired_capabilities=capabilities, options=opts)
+#opts.binary_location='HKEY_LOCAL_MACHINE\SOFTWARE\Mozilla\Mozilla Firefox\[VERSION]\Main\PathToExe'
+#driver = webdriver.Firefox(service= service,options=opts)
+driver = webdriver.Remote(
+    command_executor='http://0.0.0.0:4444/wd/hub',
+    options=opts)
+#driver = webdriver.Chrome(service= service, desired_capabilities=capabilities, options=opts)
+#driver = webdriver.Chrome(service= service, chrome_options=opts)
 #driver = webdriver.Chrome(ChromeDriverManager().install())
 #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=opts)
 #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 #driver = webdriver.Chrome(ChromeDriverManager().install())
 #self.driver =webdriver.Chrome(service=Service('chromedriver.exe'),options=opts)
-driver.get('https://www.enel.com.co/es/reporte-de-fallas.html?utm_id=7908&utm_source=google%20search%20-%20nacional&utm_medium=cpc&utm_campaign=enel%20colombia_rerporte-de-fallas-b2b_cli&utm_term=arte%20entretenimiento_anuncio%20de%20texto_na')
+driver.get(url)
 
 #options = webdriver.ChromeOptions()
 #options.add_experimental_option('androidPackage', 'com.android.chrome')
