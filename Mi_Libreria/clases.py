@@ -1,3 +1,4 @@
+import datetime
 #instrucciones para crear el objeto soldado
 class Soldado:
     #ATRIBUTOS valores por defecto para los nuevos objetos
@@ -33,3 +34,23 @@ print(f"esta es la vida inicial: {tropa1.vida}\n")
 print("Recibe 200 de daño")
 tropa1.recibe_golpe(200)
 print(f"esta es la vida despues del golpe: {tropa1.vida}\n")
+
+class Sla:
+    def __init__(self,hora_input):
+        self.hora_input=hora_input
+        self.hora_actual=datetime.datetime.now()
+        print(self.hora_actual)
+        self.dispatch=self.hora_actual-self.hora_input
+    
+    
+        
+   
+
+hora='2023-10-25 12:59:34'
+hora=datetime.datetime.strptime(hora, "%Y-%m-%d %H:%M:%S")
+print(hora)
+sla= Sla(hora)
+
+print(f"este es sla.hora_actual: {sla.hora_actual}")
+print(f"este es sla.dispatch: {sla.dispatch.seconds}")
+print(f"este es sla.dispatch: {type(sla.dispatch)}")
